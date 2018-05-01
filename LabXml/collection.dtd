@@ -1,0 +1,8 @@
+<!ELEMENT collection (cd)>
+<!ELEMENT cd (title,interpret,year)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT interpret (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+
+
+

@@ -1,0 +1,279 @@
+<!Doctype html>
+
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+
+
+#view{
+				z-index: 100;
+                position: fixed;
+                top:0%;
+			    left:10%;
+                background: rgba(0, 0, 0, 0.7);
+                width:80%;
+				height: 100%;
+                padding: 10px;
+                text-align: left;
+                text-decoration: none;
+                color: #fff;
+}
+
+#next{
+    position: absolute;
+    background: rgba(0, 0, 0,0);
+    left: 100%;
+    top: 0%;
+	width: 125px;
+	height: 90%;
+	text-align: center;
+}
+
+#previous{
+position: absolute;
+   background: rgba(0, 0, 0,0);
+    left: 0%;
+    top: 0%;
+	width: 125px;
+	height: 100%;
+	text-align: center;
+}
+#pprevious{
+color: #e0e0eb;
+position: absolute;
+top: 30%;
+left:35%;
+font-size: 70px;
+font-style: bold;
+}
+
+#pnext{
+color: #e0e0eb;
+position: absolute;
+top: 30%;
+left:40%;
+font-size: 70px;
+font-style: bold;
+	
+}
+#pnext:hover{
+color: #a3a3c2;
+
+}
+#next:hover{
+background: rgba(0, 0, 0,0.2);
+}
+
+#previous:hover{
+background: rgba(0, 0, 0,0.2);
+
+}
+#pprevious:hover{
+color:#a3a3c2;
+}
+#pics:hover{
+color:#a3a3c2;
+}
+
+/*#pics{*/
+/*color: #e0e0eb;*/
+/*position: absolute;*/
+/*top: 0%;*/
+/*left:60%;*/
+/*font-size: 30px;*/
+
+/*}*/
+
+#myImg{
+	
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+	width: auto;
+	height: auto;
+	max-width: 800px;
+	max-height: 550px;
+
+}
+
+.column img{
+
+ 
+	
+    margin-top: 8px;
+    vertical-align: middle;
+	
+	
+}
+.container{
+   display: -ms-flexbox; 
+    display: flex;
+    -ms-flex-wrap: wrap; 
+    flex-wrap: wrap;
+    padding: 0 4px;
+
+ 
+}
+
+.column {
+    -ms-flex: 25%; 
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+}
+
+@media screen and (max-width: 800px) {
+    .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+
+/*@media screen and (max-width: 600px) {*/
+    /*.column {*/
+        /*-ms-flex: 100%;*/
+        /*flex: 100%;*/
+        /*max-width: 100%;*/
+    /*}*/
+/*}*/
+
+/*.container img:hover{*/
+	/**/
+	/*max-width: 300px;*/
+	/*max-height: 300px;*/
+	/**/
+	/**/
+/*}*/
+/*-->*/
+
+
+</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="column" id="col1" value="1">
+	</div>
+	<div class="column" id="col2" value="2">
+	</div>
+	<div class="column" id="col3" value="3">
+	</div>
+	<div class="column" id="col4" value="4">
+	</div>
+	
+	
+	
+
+</div>
+
+<div id="view">
+		<div id="next">
+			<p id="pnext">> </p>
+			<p id="pics"> X </p>
+		</div>
+		<div id="previous">
+			<p id="pprevious"> < </p>
+			
+		</div>
+		
+		
+	</div>
+	
+	
+
+</body>
+<script>
+var imagini=[];
+var n=21;
+$(document).ready(function(){
+$("#view").hide();
+for(i=1;i<=n;i++){
+	var coloana="#col"
+	var j=i%4;
+	if(j==0)
+		j=4;
+	var $val=$("<img class='poze' id='myImg"+i+"'"+ "value='"+i+"' src='img"+i+".jpg'"+" style='width:100%' ></img>")
+	imagini.push("myImg"+i);
+	
+	coloana=coloana+j;
+	$(coloana).append($val);
+}
+
+
+});
+
+$(".container").on('click','img',function(){
+	
+
+	var imgSrc =$(this).attr('src');
+	var val=$("<img id='myImg' value='"+$(this).attr('value')+"' src='"+imgSrc+"'></img>");
+	$("#view").append(val);
+	$("#view").show();
+	$('.container').off();
+	
+	//$.each($(".img"), function(key,val)
+});
+
+$("#pics").click(function(){
+
+	$("#myImg").remove();
+	$("#view").hide();
+   	$('.container').on('click','img',function(){
+	
+
+	var imgSrc =$(this).attr('src');
+	var val=$("<img id='myImg' value='"+$(this).attr('value')+"' src='"+imgSrc+"'></img>");
+	$("#view").append(val);
+	$("#view").show();
+	$('.container').off();
+	
+	//$.each($(".img"), function(key,val)
+});
+});
+
+$("#pprevious").click(function(){
+	var i=$("#myImg").attr('value');
+	$("#myImg").remove();
+	if(i==1)
+	i=imagini.length;
+	else
+	i=i-1;
+	var val=$("<img id='myImg' value='"+i+"' src='img"+i+".jpg'></img>");
+	$("#view").append(val);
+	
+});
+
+
+$("#pnext").click(function(){
+	var i=$("#myImg").attr('value');
+	$("#myImg").remove();
+	
+	if(i==imagini.length)
+	i=1;
+	else
+	i=parseInt(i)+1;
+	var val=$("<img id='myImg' value='"+i+"' src='img"+i+".jpg'></img>");
+	$("#view").append(val);
+	
+});
+
+
+
+</script>
+
+</html>
+
+

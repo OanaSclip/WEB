@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="slideStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // animate({styles},speed,easing,callback)
+        $(document).ready(function () {
+            $('.box').click(function () {
+
+                $(this).animate({
+                    bottom: '0%'
+                }, 200, function () {
+                    $(this).css('top', '100%');
+                    $(this).appendTo('#container');
+                });
+
+                $(this).next().animate({
+                    bottom: '0%'
+                }, 500);
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="container">
+
+    <div id="box1" class="box">
+        <h1>Spring</h1>
+        <img src="a.jpg" alt="Pyton LOGO" >
+    </div>
+    <div id="box2" class="box">
+        <h1>Summer</h1>
+        <img src="s.jpg" alt="Pyton LOGO" width="auto" height="auto">
+    </div>
+    <div id="box4" class="box">
+        <h1>Fall</h1>
+        <img src="fall.jpg" alt="Pyton LOGO" >
+    </div>
+    <div id="box3" class="box">
+        <h1>Winter</h1>
+        <img src="w.jpg" alt="Pyton LOGO" >
+    </div>
+
+
+</div>
+
+</body>
+</html>

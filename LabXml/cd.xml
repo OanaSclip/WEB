@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--<!DOCTYPE collection SYSTEM "collection.dtd">-->
+<?xml-stylesheet type="text/xsl" href="cd.xsl"?>
+<collection>
+	<cd>
+		<title>High Performance TCP Networking</title>
+		<interpret>Raj Jain</interpret>
+        <year>1990</year>
+
+	</cd>
+	<cd>
+		<title>Transactional Information Systems</title>
+		<interpret>Gottfried Vossen</interpret>
+        <year>1990</year>
+
+	</cd>
+	<cd>
+		<title>Mathematical Encyclopedia</title>
+		<interpret>Eric Weistein</interpret>
+        <year>2000</year>
+
+	</cd>
+    <cd>
+		<title>Universe</title>
+		<interpret>John Smith</interpret>
+        <year>2019</year>
+
+	</cd>
+    <cd>
+		<title>TCP Networking</title>
+		<interpret>Mickael Reem</interpret>
+        <year>1990</year>
+
+	</cd>
+</collection>

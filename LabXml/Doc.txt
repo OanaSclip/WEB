@@ -1,0 +1,4 @@
+List by using XSLT all the CD albums described in an XML document in a table format
+with (title, interpret name). All entries having a common property (e.g. albums 
+which appeared in 1999) should be marked (have a different format).
+You should also use at least 6 Bootstrap CSS classes for formatting the entries.
